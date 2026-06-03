@@ -1,0 +1,21 @@
+# ── LLM & embeddings ──────────────────────────────
+ollama>=0.1.9                  # Python client for Ollama
+
+# ── LangChain core ────────────────────────────────
+langchain>=0.2.0               # Main orchestration framework
+langchain-community>=0.2.0     # DirectoryLoader, PyPDFLoader, TextLoader
+langchain-ollama>=0.1.0        # OllamaEmbeddings + ChatOllama integration
+
+# ── Vector database ───────────────────────────────
+chromadb>=0.5.0                # Local vector store (persists to /chroma_db)
+
+# ── Document loaders ──────────────────────────────
+pypdf>=4.0.0                   # PDF parsing (used by PyPDFLoader)
+unstructured>=0.14.0           # Fallback loader for .txt, .md, .html files
+
+# ── Streamlit UI ──────────────────────────────────
+streamlit>=1.35.0              # Chat interface (app.py)
+
+# ── Utilities ─────────────────────────────────────
+python-dotenv>=1.0.0           # Load config from .env file
+tqdm>=4.66.0                   # Progress bars during ingestion
