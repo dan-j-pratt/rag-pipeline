@@ -20,6 +20,7 @@ for message in st.session_state.messages:
         st.markdown(message["content"])
 
 #Chat
+#takes user inputs and sends out output
 if user_input := st.chat_input("Ask something about your documents..."):
 
     #Shower user message
