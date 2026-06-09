@@ -1,0 +1,23 @@
+# Virtual environment
+.venv/
+venv/
+
+# ChromaDB (large binary files, machine-specific)
+chroma_db/
+
+# Tracking file (machine-specific paths)
+ingested_files.json
+
+# Documents (likely private/personal files)
+docs/
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+
+# PyCharm
+.idea/
+
+# Environment variables
+.env
