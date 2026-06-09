@@ -19,6 +19,7 @@ def load_tracking():
             return []
         return json.loads(content)
 
+#Helps to track files already stored
 def save_tracking(ingested_files):
     with open(TRACKING_FILE, "w") as f:
         json.dump(ingested_files, f, indent=2)
@@ -42,10 +43,6 @@ def load_documents(files):
         documents.extend(loader.load())
     print(f"Loaded {len(documents)} documents page(s) from {len(files)} new files")
     return documents
-    # loader = DirectoryLoader("./docs", glob="**/*.pdf", loader_cls=PyPDFLoader)
-    # documents = loader.load()
-    # print(f"Loaded {len(documents)} document(s)")
-    # return documents
 
 
 #RecursiveCharacterTextSplitter with a chuck_size of 1024
@@ -66,13 +63,6 @@ def create_embeddings():
 
 #Persist to disk
 def store_in_chromadb(chunks,embeddings):
-    # vectorstore = Chroma.from_documents(
-    #     documents=chunks,
-    #     embedding=embeddings,
-    #     persist_directory="./chroma_db"
-    # )
-    # print("Vector store saved to /chroma_db")
-    # return vectorstore
     # If DB already exists, add to it — don't wipe it
     if os.path.exists(CHROMA_PATH):
         vectorstore = Chroma(
@@ -89,6 +79,9 @@ def store_in_chromadb(chunks,embeddings):
         )
         print("Created new vector store")
     return vectorstore
+
+def test():
+    print("test")
 
 #Chain all processes together
 def main():
